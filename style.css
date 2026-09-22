@@ -1,0 +1,1240 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap');
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0b0b0b;
+    color: #f2f2f2;
+    font-family: 'Inter', sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+section {
+    scroll-margin-top: 100px;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    mix-blend-mode: difference;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: translateX(8px);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    position: relative;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 1px;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================
+   SHARED TYPOGRAPHY
+========================= */
+
+.eyebrow,
+.section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+    padding: 120px 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.hero h1 {
+    font-size: clamp(90px, 17vw, 260px);
+    line-height: 0.78;
+    letter-spacing: -10px;
+    font-weight: 800;
+    margin-left: -8px;
+    transition: letter-spacing 0.4s ease;
+}
+
+.hero h1:hover {
+    letter-spacing: -7px;
+}
+
+.hero h1 span {
+    font-size: 0.6em;
+}
+
+.hero-description {
+    max-width: 500px;
+    margin-top: 55px;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.hero-button,
+.resume-button {
+    display: inline-block;
+    width: fit-content;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    transition: 0.3s ease;
+}
+
+.hero-button {
+    margin-top: 35px;
+    padding: 15px 22px;
+    border: 1px solid #f2f2f2;
+}
+
+.hero-button:hover {
+    background: #f2f2f2;
+    color: #0b0b0b;
+}
+
+.resume-button {
+    margin-top: 15px;
+    margin-left: 15px;
+    padding: 15px 22px;
+    border: 1px solid #333;
+}
+
+.resume-button:hover {
+    border-color: #f2f2f2;
+    background: #f2f2f2;
+    color: #0b0b0b;
+}
+
+
+/* =========================
+   WORK
+========================= */
+
+.work {
+    padding: 110px 40px 45px;
+}
+
+.work h2 {
+    font-size: clamp(55px, 9vw, 130px);
+    line-height: 0.9;
+    letter-spacing: -5px;
+    margin-bottom: 100px;
+}
+
+.projects {
+    display: flex;
+    flex-direction: column;
+    gap: 90px;
+}
+
+.project {
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+.project-visual {
+    position: relative;
+    height: 650px;
+    overflow: hidden;
+    transition: transform 0.5s cubic-bezier(.2, .8, .2, 1);
+    will-change: transform;
+}
+
+.project-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    transition: padding 0.3s ease;
+}
+
+.project:hover .project-info {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.project-info h3 {
+    font-size: 24px;
+    font-weight: 500;
+    transition: transform 0.3s ease;
+}
+
+.project:hover .project-info h3 {
+    transform: translateX(8px);
+}
+
+.project-info p {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: #999;
+}
+
+.project-link,
+.project-number {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+}
+
+.project-link {
+    transition: opacity 0.3s ease;
+}
+
+.project-link:hover {
+    opacity: 0.5;
+}
+
+.project-number {
+    color: #777;
+}
+
+
+/* =========================
+   DRIFTTEES VISUAL
+========================= */
+
+.drift-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 70% 30%, #444 0%, transparent 30%),
+        linear-gradient(135deg, #111, #292929);
+    transition: transform 0.7s cubic-bezier(.2, .8, .2, 1);
+}
+
+.drift-content {
+    position: absolute;
+    left: 7%;
+    bottom: 8%;
+    display: flex;
+    flex-direction: column;
+    font-size: clamp(70px, 12vw, 180px);
+    line-height: 0.75;
+    letter-spacing: -8px;
+    font-weight: 800;
+}
+
+.drift-content span:last-child {
+    margin-left: 80px;
+}
+
+.drift-tag {
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.drifttees:hover .drift-bg {
+    transform: scale(1.06);
+}
+
+
+/* =========================
+   SCHOOL PROJECT
+========================= */
+
+.school .project-visual {
+    background: #dedbd2;
+    color: #111;
+}
+
+.school-content {
+    height: 100%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.school-small {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.school-big {
+    font-size: clamp(65px, 10vw, 150px);
+    font-weight: 800;
+    line-height: 0.8;
+    letter-spacing: -7px;
+}
+
+
+/* =========================
+   EXPERIMENT PROJECT
+========================= */
+
+.experiment .project-visual {
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.experiment-circle {
+    width: 330px;
+    height: 330px;
+    border-radius: 50%;
+    border: 1px solid #777;
+    transition: transform 0.8s cubic-bezier(.2, .8, .2, 1);
+}
+
+.experiment:hover .experiment-circle {
+    transform: scale(1.5);
+}
+
+.experiment-text {
+    position: absolute;
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    padding: 85px 40px 100px;
+    border-top: 1px solid #333;
+}
+
+.about-header h2 {
+    font-size: clamp(70px, 12vw, 180px);
+    line-height: 0.82;
+    letter-spacing: -8px;
+    margin-bottom: 100px;
+}
+
+.about-header h2 span {
+    color: #777;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    max-width: 1200px;
+    margin-left: auto;
+}
+
+.about-intro {
+    font-size: 24px;
+    line-height: 1.5;
+}
+
+.about-intro p+p {
+    margin-top: 30px;
+    color: #888;
+}
+
+.about-details {
+    border-top: 1px solid #333;
+}
+
+.detail {
+    display: flex;
+    justify-content: space-between;
+    padding: 22px 0;
+    border-bottom: 1px solid #333;
+}
+
+.detail span {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: #777;
+}
+
+.detail strong {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+
+/* =========================
+   EXPERIENCE
+========================= */
+
+.experience {
+    margin-top: 100px;
+}
+
+.experience-item {
+    display: grid;
+    grid-template-columns: 80px 1fr 120px;
+    gap: 40px;
+    padding: 45px 0;
+    border-top: 1px solid #333;
+    transition: padding 0.4s ease;
+}
+
+.experience-item:last-child {
+    border-bottom: 1px solid #333;
+}
+
+.experience-item:hover {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.experience-number,
+.experience-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: #777;
+}
+
+.experience-title {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.experience-title h3 {
+    font-size: 34px;
+    font-weight: 500;
+    letter-spacing: -1px;
+}
+
+.experience-title span {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+}
+
+.experience-main>p {
+    max-width: 600px;
+    margin-top: 25px;
+    color: #999;
+    line-height: 1.6;
+}
+
+.experience-tags {
+    display: flex;
+    gap: 8px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.experience-tags span {
+    padding: 8px 12px;
+    border: 1px solid #333;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills {
+    padding: 90px 40px 100px;
+    border-top: 1px solid #333;
+}
+
+.skills-heading {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 80px;
+    align-items: end;
+    margin-bottom: 80px;
+}
+
+.skills-heading h2 {
+    font-size: clamp(70px, 11vw, 170px);
+    line-height: 0.8;
+    letter-spacing: -8px;
+}
+
+.skills-heading h2 span {
+    color: #777;
+}
+
+.skills-heading>p {
+    color: #888;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.skills-list {
+    border-top: 1px solid #333;
+}
+
+.skill {
+    display: grid;
+    grid-template-columns: 80px 1fr 200px;
+    align-items: center;
+    padding: 30px 0;
+    border-bottom: 1px solid #333;
+    cursor: pointer;
+    transition: padding 0.35s ease;
+}
+
+.skill:hover {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.skill>span {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: #777;
+}
+
+.skill h3 {
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: -1px;
+    transition: transform 0.4s cubic-bezier(.2, .8, .2, 1);
+}
+
+.skill:hover h3 {
+    transform: translateX(15px);
+}
+
+.skill p {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: #777;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+    min-height: 100vh;
+    padding: 130px 40px 40px;
+    border-top: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contact-main {
+    padding: 60px 0 120px;
+}
+
+.contact-small {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: #777;
+    letter-spacing: 1px;
+    margin-bottom: 45px;
+}
+
+.contact h2 {
+    font-size: clamp(80px, 15vw, 220px);
+    line-height: 0.76;
+    letter-spacing: -10px;
+    margin-bottom: 80px;
+}
+
+.contact h2 span {
+    color: #777;
+}
+
+.contact-email {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 18px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #f2f2f2;
+    transition: opacity 0.3s ease;
+}
+
+.contact-email:hover {
+    opacity: 0.5;
+}
+
+.contact-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #333;
+    padding-top: 25px;
+}
+
+.contact-bottom>p,
+.socials a {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: #777;
+}
+
+.socials {
+    display: flex;
+    gap: 30px;
+}
+
+.socials a {
+    color: #f2f2f2;
+    transition: opacity 0.3s ease;
+}
+
+.socials a:hover {
+    opacity: 0.5;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    border-top: 1px solid #333;
+    padding: 25px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-left,
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.footer-left strong {
+    font-size: 16px;
+}
+
+.footer-left span,
+.footer-right span {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: #666;
+}
+
+
+/* =========================
+   CUSTOM CURSOR
+========================= */
+
+.custom-cursor {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #fff;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition:
+        width 0.25s ease,
+        height 0.25s ease,
+        opacity 0.25s ease;
+    mix-blend-mode: difference;
+}
+
+.cursor-hover {
+    width: 55px;
+    height: 55px;
+}
+
+
+/* =========================
+   SCROLL REVEALS
+========================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(.2, .8, .2, 1);
+}
+
+.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.project:nth-child(3) {
+    transition-delay: 0.2s;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    nav {
+        padding: 20px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .hero,
+    .work,
+    .about,
+    .skills,
+    .contact {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .hero h1 {
+        font-size: 22vw;
+        letter-spacing: -5px;
+    }
+
+    .resume-button {
+        margin-left: 0;
+    }
+
+    .projects {
+        gap: 70px;
+    }
+
+    .project-visual {
+        height: 400px;
+    }
+
+    .project-info {
+        display: block;
+    }
+
+    .project-info p {
+        margin-top: 8px;
+    }
+
+    .drift-store {
+        padding: 20px;
+    }
+
+    .school-content {
+        padding: 25px;
+    }
+
+    .school-big {
+        font-size: 17vw;
+        letter-spacing: -4px;
+    }
+
+    .about {
+        padding-top: 70px;
+        padding-bottom: 80px;
+    }
+
+    .about-header h2 {
+        letter-spacing: -5px;
+        margin-bottom: 70px;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .about-intro {
+        font-size: 20px;
+    }
+
+    .experience {
+        margin-top: 80px;
+    }
+
+    .experience-item {
+        grid-template-columns: 35px 1fr;
+        gap: 15px;
+    }
+
+    .experience-date {
+        display: none;
+    }
+
+    .experience-title {
+        display: block;
+    }
+
+    .experience-title h3 {
+        font-size: 26px;
+    }
+
+    .experience-title span {
+        display: block;
+        margin-top: 8px;
+    }
+
+    .skills {
+        padding-top: 70px;
+        padding-bottom: 80px;
+    }
+
+    .skills-heading {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-bottom: 60px;
+    }
+
+    .skills-heading h2 {
+        letter-spacing: -5px;
+    }
+
+    .skill {
+        grid-template-columns: 40px 1fr;
+        gap: 15px;
+    }
+
+    .skill h3 {
+        font-size: 21px;
+    }
+
+    .skill p {
+        grid-column: 2;
+    }
+
+    .contact {
+        padding-top: 100px;
+    }
+
+    .contact h2 {
+        letter-spacing: -5px;
+        margin-bottom: 60px;
+    }
+
+    .contact-main {
+        padding-top: 50px;
+        padding-bottom: 90px;
+    }
+
+    .contact-bottom {
+        display: block;
+    }
+
+    .socials {
+        margin-top: 25px;
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    footer {
+        padding: 20px;
+        display: block;
+    }
+
+    .footer-right {
+        margin-top: 15px;
+    }
+
+    .custom-cursor {
+        display: none;
+    }
+}
+
+/* =========================
+   FINAL MOBILE POLISH
+========================= */
+
+@media (max-width: 700px) {
+
+    html,
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+        padding: 18px 20px;
+    }
+
+    .logo {
+        font-size: 17px;
+        flex-shrink: 0;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 10px;
+    }
+
+
+    /* GENERAL SECTION SPACING */
+
+    .hero,
+    .work,
+    .about,
+    .skills,
+    .contact {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: auto;
+        padding-top: 110px;
+        padding-bottom: 30px;
+        justify-content: flex-start;
+    }
+
+    .eyebrow {
+        font-size: 10px;
+        line-height: 1.5;
+        margin-bottom: 24px;
+    }
+
+    .hero h1 {
+        font-size: 22vw;
+        line-height: 0.82;
+        letter-spacing: -5px;
+        margin-left: -3px;
+    }
+
+    .hero-description {
+        max-width: 330px;
+        margin-top: 40px;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+
+    /* WORK */
+
+    .work {
+        padding-top: 80px;
+    }
+
+    .work h2 {
+        font-size: 15vw;
+        letter-spacing: -5px;
+        margin-bottom: 65px;
+    }
+
+    .projects {
+        gap: 65px;
+    }
+
+    .project-visual {
+        height: 400px;
+    }
+
+    .project-info {
+        display: block;
+        padding-top: 16px;
+        padding-bottom: 18px;
+    }
+
+    .project-info h3 {
+        font-size: 22px;
+    }
+
+    .project-info p {
+        margin-top: 7px;
+        font-size: 10px;
+        line-height: 1.5;
+    }
+
+    .project-link {
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+    .drift-content {
+        font-size: 22vw;
+        letter-spacing: -5px;
+    }
+
+    .drift-content span:last-child {
+        margin-left: 45px;
+    }
+
+    .drift-tag {
+        top: 20px;
+        right: 20px;
+        font-size: 9px;
+    }
+
+    .school-content {
+        padding: 25px;
+    }
+
+    .school-big {
+        font-size: 17vw;
+        letter-spacing: -5px;
+    }
+
+
+    /* ABOUT */
+
+    .about {
+        padding-top: 80px;
+        padding-bottom: 90px;
+    }
+
+    .about-header h2 {
+        font-size: 17vw;
+        letter-spacing: -5px;
+        margin-bottom: 70px;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .about-intro {
+        font-size: 18px;
+        line-height: 1.55;
+    }
+
+    .about-intro p+p {
+        margin-top: 24px;
+    }
+
+    .detail {
+        padding: 18px 0;
+        gap: 15px;
+    }
+
+    .detail strong {
+        text-align: right;
+    }
+
+
+    /* EXPERIENCE */
+
+    .experience {
+        margin-top: 90px;
+    }
+
+    .experience-item {
+        grid-template-columns: 30px 1fr;
+        gap: 12px;
+        padding: 35px 0;
+    }
+
+    .experience-date {
+        display: none;
+    }
+
+    .experience-title {
+        display: block;
+    }
+
+    .experience-title h3 {
+        font-size: 24px;
+    }
+
+    .experience-title span {
+        display: block;
+        margin-top: 7px;
+        font-size: 10px;
+    }
+
+    .experience-main>p {
+        margin-top: 20px;
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .experience-tags {
+        margin-top: 20px;
+    }
+
+
+    /* SKILLS */
+
+    .skills {
+        padding-top: 80px;
+        padding-bottom: 90px;
+    }
+
+    .skills-heading {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 55px;
+    }
+
+    .skills-heading h2 {
+        font-size: 17vw;
+        letter-spacing: -5px;
+    }
+
+    .skills-heading>p {
+        font-size: 15px;
+    }
+
+    .skill {
+        grid-template-columns: 35px 1fr;
+        gap: 12px;
+        padding: 24px 0;
+    }
+
+    .skill h3 {
+        font-size: 20px;
+    }
+
+    .skill p {
+        grid-column: 2;
+        font-size: 9px;
+        margin-top: 4px;
+    }
+
+
+    /* CONTACT */
+
+    .contact {
+        min-height: auto;
+        padding-top: 45px;
+        padding-bottom: 25px;
+    }
+
+    .contact-main {
+        padding-top: 30px;
+        padding-bottom: 55px;
+    }
+
+    .contact-small {
+        font-size: 9px;
+        line-height: 1.5;
+        margin-bottom: 35px;
+    }
+
+    .contact h2 {
+        width: 100%;
+        max-width: 100%;
+        font-size: 13vw;
+        line-height: 0.82;
+        letter-spacing: -5px;
+        margin-bottom: 55px;
+    }
+
+    .contact-email {
+        font-size: 15px;
+    }
+
+    .contact-bottom {
+        display: block;
+    }
+
+    .socials {
+        margin-top: 22px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+        padding: 20px;
+        display: block;
+    }
+
+    .footer-left,
+    .footer-right {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .footer-right {
+        margin-top: 14px;
+    }
+}
+
+@media (max-width: 700px) {
+    .contact {
+        padding-top: 20px;
+    }
+
+    .contact-main {
+        padding-top: 10px;
+    }
+
+    .contact-small {
+        margin-bottom: 25px;
+    }
+}
